@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Posed from 'react-pose';
-import uuid from 'react-uuid'
 import UserConsumer from '../Context'
+import Axios from 'axios'
 
 const Animation = Posed.div({
     visible: {
@@ -39,17 +39,19 @@ class AddUser extends Component {
         })
     }
 
-    addUser = (dispatch, event) => {
+    addUser =  async (dispatch, event) => {
         event.preventDefault();
 
         const { name, department, salary } = this.state;
         const newUser =  {
-            id: uuid(),
             name,
             department,
             salary
         };
-        dispatch({type: 'ADD_USER', payload: newUser})
+
+        const response = await Axios.post('http://localhost:3004/users', newUser)
+
+        dispatch({type: 'ADD_USER', payload: response.data})
     }
 
     render() {

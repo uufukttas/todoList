@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashAlt } from '@fortawesome/free-regular-svg-icons'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import UserConsumer from '../Context'
+import Axios from 'axios'
 
 class User extends Component {
     state = {
@@ -16,9 +17,11 @@ class User extends Component {
         });
     }
 
-    onDeleteUser = (dispatch, event) => {
+    onDeleteUser = async (dispatch, event) => {
         const { id } = this.props;
         
+        Axios.delete(`http://localhost:3004/users/${id}`)
+
         dispatch({type: 'DELETE_USER', payload: id})
     }
 
