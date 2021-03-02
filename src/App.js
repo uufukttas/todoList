@@ -22,10 +22,9 @@ class App extends Component {
     return (
       <Router>
         <div className='container'>
-          <Route exact path='/' component={Home}>
-          </Route>
-          <Route exact path='/about' component={About}>
-          </Route>
+          <Navbar title = 'Employers' />
+          <Route exact path='/' component={Users} />
+          <Route exact path='/addUser' component={AddUser} />
         </div>
       </Router>
     );
