@@ -17,6 +17,12 @@
       "department": "qwe",
       "salary": "123",
       "id": "vzsPZfu"
+    },
+    {
+      "name": "User 1",
+      "department": "Optimus",
+      "salary": "1000",
+      "id": "Jj4CzGY"
     }
   ]
 }
